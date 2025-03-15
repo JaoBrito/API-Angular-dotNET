@@ -1,0 +1,103 @@
+<style>
+  .container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #ddd;
+    border-radius: 5%;
+  }
+
+  h1, h3 {
+    text-align: center;
+    color: #333;
+  }
+
+  h1 img {
+    height: 40px;
+  }
+
+  .input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  .button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .button:hover {
+    background-color: #0056b3;
+  }
+
+  .pessoa-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .pessoa-item {
+    background: #f1f1f1;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .pessoa-item:hover {
+    background: #ddd;
+  }
+</style>
+<body>
+<div class="container">
+  <h1>
+    Consumindo a API do 
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Microsoft_.NET_logo.svg/1024px-Microsoft_.NET_logo.svg.png" alt=".NET Logo">
+    no 
+    <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular Logo">
+  </h1>
+
+  <h3>Buscar Pessoa</h3>
+  <div class="input-container">
+    <input type="search" [(ngModel)]="valorBuscaPessoa" (keyup.enter)="obterPessoaEspecifica()" placeholder="Digite o nome">
+    <button class="button" (click)="obterPessoaEspecifica()">Buscar</button>
+  </div>
+  <p><strong>Pessoa Encontrada:</strong> {{(pessoaEncontrada$ | async)?.nome}}</p>
+
+  <h3>Adicionar Pessoa</h3>
+  <div class="input-container">
+    <input type="text" [(ngModel)]="nomeAdicionar" (keyup.enter)="adicionarPessoa()" placeholder="Nome da pessoa">
+    <button class="button" (click)="adicionarPessoa()">Adicionar</button>
+  </div>
+
+  <h3>Atualizar Nome</h3>
+  <div class="input-container">
+    <input type="text" [(ngModel)]="nomeAtualizar" (keyup.enter)="atualizarNome()" placeholder="Novo nome">
+    <button class="button" (click)="atualizarNome()">Atualizar</button>
+  </div>
+
+  <h3>Listar Pessoas</h3>
+  <div class="pessoa-lista">
+    <span *ngFor="let pessoa of pessoas$ | async" (click)="obterDadosAtualizar(pessoa)" class="pessoa-item">
+      {{ pessoa.nome }} <button style="color: red; border: 0;" (click)="deletarPessoa(pessoa)">X</button>
+    </span>
+  </div>
+</div>
+</body>

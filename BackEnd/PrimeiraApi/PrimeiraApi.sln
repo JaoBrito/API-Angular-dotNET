@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimeiraApi", "PrimeiraApi\PrimeiraApi.csproj", "{46D68828-8428-45E8-B8B6-E899CDD9B12E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46D68828-8428-45E8-B8B6-E899CDD9B12E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46D68828-8428-45E8-B8B6-E899CDD9B12E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46D68828-8428-45E8-B8B6-E899CDD9B12E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46D68828-8428-45E8-B8B6-E899CDD9B12E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
